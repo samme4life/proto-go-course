@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	pb "github.com/samme4life/proto-go-course/proto"
 )
 
