@@ -4,10 +4,30 @@ import (
 	"fmt"
 	"google.golang.org/protobuf/proto"
 	pb "proto-go-course/internal/proto"
+	"reflect"
 )
 
 func main() {
-	doFile(doSimple())
+	//jsonString := doToJSON(doSimple())
+	//message := doFromJSON(jsonString, reflect.TypeOf(pb.Simple{}))
+
+	jsonString := doToJSON(doComplex())
+	message := doFromJSON(jsonString, reflect.TypeOf(pb.Complex{}))
+
+	fmt.Println(jsonString)
+	fmt.Println(message)
+}
+
+func doToJSON(p proto.Message) string {
+	jsonString := toJSON(p)
+	fmt.Println(jsonString)
+	return jsonString
+}
+
+func doFromJSON(jsonString string, t reflect.Type) proto.Message {
+	message := reflect.New(t).Interface().(proto.Message)
+	fromJSON(jsonString, message)
+	return message
 }
 
 func doFile(p proto.Message) {
