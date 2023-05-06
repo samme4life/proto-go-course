@@ -2,11 +2,22 @@ package main
 
 import (
 	"fmt"
+	"google.golang.org/protobuf/proto"
 	pb "proto-go-course/internal/proto"
 )
 
 func main() {
-	fmt.Println(doMap())
+	doFile(doSimple())
+}
+
+func doFile(p proto.Message) {
+	path := "simple.bin"
+
+	writeToFile(path, p)
+	message := &pb.Simple{}
+
+	readFromFile(path, message)
+	fmt.Println(message)
 }
 
 func doSimple() *pb.Simple {
