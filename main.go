@@ -6,12 +6,7 @@ import (
 )
 
 func main() {
-	doOneOf(&pb.Result_Id{
-		Id: 76,
-	})
-	doOneOf(&pb.Result_Message{
-		Message: "Hello World!",
-	})
+	fmt.Println(doMap())
 }
 
 func doSimple() *pb.Simple {
@@ -56,5 +51,21 @@ func doOneOf(message interface{}) {
 		fmt.Println(message.(*pb.Result_Message).Message)
 	default:
 		fmt.Errorf("message has unexpected type: %v", x)
+	}
+}
+
+func doMap() *pb.MapExample {
+	return &pb.MapExample{
+		Ids: map[string]*pb.IdWrapper{
+			"Nem": {
+				Id: 43,
+			},
+			"Ryan": {
+				Id: 56,
+			},
+			"Pete": {
+				Id: 9,
+			},
+		},
 	}
 }
