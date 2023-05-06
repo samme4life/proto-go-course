@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-
-	pb "github.com/samme4life/proto-go-course/proto"
+	pb "proto-go-course/internal/proto"
 )
 
 func main() {
-	fmt.Println(doComplex())
+	fmt.Println(doSimple())
 }
 
 func doSimple() *pb.Simple {
@@ -22,18 +21,24 @@ func doSimple() *pb.Simple {
 func doComplex() *pb.Complex {
 	return &pb.Complex{
 		OneDummy: &pb.Dummy{
-			Id: 23,
+			Id:   23,
 			Name: "OneDummy",
 		},
 		MultipleDummies: []*pb.Dummy{
 			&pb.Dummy{
-				Id: 41,
+				Id:   41,
 				Name: "TwoDummy",
 			},
 			&pb.Dummy{
-				Id: 23,
+				Id:   23,
 				Name: "ThreeDummy",
 			},
 		},
+	}
+}
+
+func doEnum() *pb.Enumeration {
+	return &pb.Enumeration{
+		EyeColour: pb.EyeColour_EYE_COLOUR_BLUE,
 	}
 }

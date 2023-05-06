@@ -1,4 +1,4 @@
-module github.com/samme4life/proto-go-course
+module proto-go-course
 
 go 1.18
 
