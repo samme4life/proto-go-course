@@ -17,8 +17,6 @@ install: ## installs dependencies
 	go mod vendor
 
 # Fetch project & Go dependencies
-# This target will only work if the user has go1.18.5 on their PATH
-# How to configure specific go version is explained here: https://go.dev/doc/manage-install
 .PHONY: deps
 deps: config
 	go mod tidy

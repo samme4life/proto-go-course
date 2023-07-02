@@ -1,6 +1,8 @@
 # proto-go-course
 This is to learn protobuf in Golang
-Test commit
+>
+> Udemy Course: https://www.udemy.com/course/protocol-buffers/
+>
 
 ### Prerequisites
 #### to install Golang protoc-gen-go package
